@@ -1,3 +1,5 @@
+[![Import](https://cdn.infobeamer.com/s/img/import.png)](https://info-beamer.com/use?url=https://github.com/info-beamer/package-screen-info)
+
 # Shows information about a device
 
 Sometimes you want to set up a lot of screens at once. It might be

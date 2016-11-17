@@ -1,0 +1,15 @@
+{
+    "name": "Device Info Screen",
+    "permissions": {
+        "unboxed": "Needs access to the device uuid",
+        "run-as-root": "Needs access to the device uuid"
+    },
+    "options": [{
+        "title": "Logo (bottom right corner)",
+        "ui_width": 6,
+        "name": "logo",
+        "type": "resource",
+        "valid": ["image"],
+        "default": "empty.png"
+    }]
+}

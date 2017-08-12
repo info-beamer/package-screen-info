@@ -35,3 +35,10 @@ Here is what the output might look like:
 
 Either visit the contact page or use the issue tracker
 on https://github.com/info-beamer/package-screen-info/issues.
+
+# Changelog
+
+## Version 2017-08-12
+
+Updated code to support the next info-beamer hosted OS release.
+Not upgrading might not show the description/location.

@@ -14,7 +14,10 @@ def readfile(filename):
 
 UUID = readfile("/space/uuid")
 SERIAL = os.environ['SERIAL']
-CONTROL_HOST = readfile("/etc/control_host")
+try:
+    CONTROL_HOST = os.environ['CONTROL_HOST']
+except:
+    CONTROL_HOST = readfile("/etc/control_host")
 
 class QRWriter(object):
     def __init__(self, target):

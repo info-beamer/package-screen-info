@@ -3,5 +3,6 @@
     "author": "Florian Wesch <fw@info-beamer.com>",
     "desc": "Shows information about the current device on the screen. This makes it easy to see which screen is which.",
     "repository": "https://github.com/info-beamer/package-screen-info",
+    "platforms": ["pi/epoch-1", "pi-4"],
     "version": "2017-08-12"
 }

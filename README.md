@@ -38,6 +38,10 @@ on https://github.com/info-beamer/package-screen-info/issues.
 
 # Changelog
 
+## Version 2019-08-22
+
+Compatible with the Pi4
+
 ## Version 2017-08-12
 
 Updated code to support the next info-beamer hosted OS release.

@@ -1,8 +1,7 @@
 {
     "name": "Device Info Screen",
     "permissions": {
-        "unboxed": "Needs access to the device uuid",
-        "run-as-root": "Needs access to the device uuid"
+        "network": "Needs to access API"
     },
     "options": [{
         "title": "Logo (bottom right corner)",

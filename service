@@ -1,23 +1,8 @@
 #!/usr/bin/python
-import requests, time, traceback, os, sys, socket, json
+import time, traceback, os, sys
 from qrcode.image.pure import PymagingImage
 from qrcode.main import QRCode
-
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-def send(name, value):
-    sock.sendto('root/%s:%s' % (name, value), ('127.0.0.1', 4444))
-
-def readfile(filename):
-    with file(filename, "rb") as f:
-        return f.read()
-
-UUID = readfile("/space/uuid")
-SERIAL = os.environ['SERIAL']
-try:
-    CONTROL_HOST = os.environ['CONTROL_HOST']
-except:
-    CONTROL_HOST = readfile("/etc/control_host")
+from hosted import node, api
 
 class QRWriter(object):
     def __init__(self, target):
@@ -27,7 +12,7 @@ class QRWriter(object):
         if os.path.exists(self._target):
             return
 
-        with file(self._target + ".tmp", "wb") as f:
+        with open(self._target + ".tmp", "wb") as f:
             qr = QRCode(border=2, image_factory=PymagingImage)
             qr.add_data(url)
             im = qr.make_image()
@@ -37,17 +22,12 @@ class QRWriter(object):
 detail_page_qr = QRWriter("device_details.png")
 
 def fetch_info():
-    url = "https://%s/api/v1/device/connect/%s/%s" % (CONTROL_HOST, SERIAL, UUID)
-    resp = requests.get(url, headers = {
-        'User-Agent': 'device-info package',
-    })
-    resp.raise_for_status()
-    info = resp.json()
+    info = api.device_info.get()
     print >>sys.stderr, info
-    send('device_info', json.dumps(dict(
+    node['/device_info'](dict(
         description = info['description'],
         location = info['location'],
-    )))
+    ))
     detail_page_qr.update_img(info['detail_url'])
 
 if __name__ == "__main__":

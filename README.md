@@ -38,6 +38,10 @@ on https://github.com/info-beamer/package-screen-info/issues.
 
 # Changelog
 
+## Version 2021-02-25
+
+Removed legacy method of accessing device information.
+
 ## Version 2019-08-22
 
 Compatible with the Pi4
